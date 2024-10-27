@@ -16,8 +16,9 @@ class FileInlineAdmin(admin.StackedInline):
 
 @admin.register(Product)
 class ModelNameAdmin(admin.ModelAdmin):
-    list_display = ['parent','title','is_enable','created_time']
-    list_filter = ['is_enable','parent']
+    list_display = ['title','is_enable','created_time']
+    list_filter = ['is_enable']
     search_fields = ['title']
+    filter_horizontal = ['categories']
     inlines = [FileInlineAdmin]
 
